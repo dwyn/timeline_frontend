@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     createTimelineForm.addEventListener("submit", (e) => createFormHandler(e));
 })
 
+// GET request
 function getEvents() {
     fetch(endPoint)
     .then(response => response.json())
     .then(events => {
-        // console.log(events);
         events.data.forEach(event => {
             const eventInfo = `
             <div data-id=${event.id}>
@@ -28,7 +28,12 @@ function getEvents() {
 
 function createFormHandler(e) {
     e.preventDefault()
-    debugger
-    const titleInput = document.querySelector("#input-title").value;
-    const descriptionInput = document.querySelector("#input-description").value;
+    const titleInput = document.querySelector("#input-title").value
+    const descriptionInput = document.querySelector("#input-description").value
+    postFetch(titleInput, descriptionInput)
+}
+
+// POST request
+function postFetch(title, description) {
+console.log(title, description);
 }
