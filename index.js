@@ -2,6 +2,10 @@ const endPoint = "http://localhost:3000/api/v1/events";
 
 document.addEventListener('DOMContentLoaded', () => {
    getEvents()
+
+    const createTimelineForm = document.querySelector("#create-timeline-form")
+
+    createTimelineForm.addEventListener("submit", (e) => createFormHandler(e));
 })
 
 function getEvents() {
@@ -22,4 +26,9 @@ function getEvents() {
     })
 }
 
-
+function createFormHandler(e) {
+    e.preventDefault()
+    debugger
+    const titleInput = document.querySelector("#input-title").value;
+    const descriptionInput = document.querySelector("#input-description").value;
+}
