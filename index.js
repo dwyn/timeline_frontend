@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createTimelineForm.addEventListener("submit", (e) => createFormHandler(e));
 })
 
-// GET request
+// Events GET request
 function getEvents() {
     fetch(endPoint)
     .then(response => response.json())
@@ -30,10 +30,25 @@ function createFormHandler(e) {
     e.preventDefault()
     const titleInput = document.querySelector("#input-title").value
     const descriptionInput = document.querySelector("#input-description").value
-    postFetch(titleInput, descriptionInput)
+    postTimeline(titleInput, descriptionInput)
 }
+// queried values here and not at top because I won't reuse this form input data anywhere else
+
 
 // POST request
-function postFetch(title, description) {
-console.log(title, description);
+function postTimeline(title, description) {
+let timelineFetchData = {title, description}
+
+fetch(endPoint, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(timelineFetchData)
+})
+.then(response => response.json())
+.then(timeline => {
+    console.log(timeline);
+    const timelineData = timeline.data 
+    // render JSON response
+    const 
+})
 }

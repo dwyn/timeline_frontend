@@ -19,12 +19,36 @@
         <section class="intro">
               <div class="container">
                 <h1>Create a Timeline</h1>
-                <form id="create-timeline-form" style="">
+                <form id="create-timeline-form">
               
-                  <input id='input-title' type="text" name="title" value="" placeholder="Enter your timeline's title..." class="input-text">
+                  <label for="timeline-title">Timeline Title:</label>  
+                  <input id='input-title' type="text" name="title" placeholder="Timeline's title..." class="input-text">
+                  <br>
+                  <label for="timeline-description">Timeline Description:</label> 
+                  <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Timeline's description..."></textarea>
                   <br><br>
-                  <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Enter your timeline's description..."></textarea>
-                  <br><br>
+
+                  <div id="add-event">
+                    <h5>Add an Event</h5>
+                    <form id="add-event-form" action="#" method="post">
+                      <label for="new-event-year">Event Year:</label>
+                      <input type="text" id="new-event-year" name="new-event-year" placeholder="Event's year...">
+                      <br>
+                      <label for="new-event-title">Event Title:</label>
+                      <input type="text" id="new-event-title" name="new-event-title" placeholder="Event's title...">
+                      <br>
+                      <label for="new-event-description">Event Description:</label>
+                      <input type="text" id="new-event-description" name="new-event-description" placeholder="Event's description...">
+                      <br><br>
+                      <input type="submit" value="Add Event to Timeline">
+                    </form>
+                
+                    <div id="timeline-list">
+                      <h5>Timeline Events</h5>
+                      <ul id="events">
+                      </ul>
+                    </div>
+
               
                   <input id= 'create-button' type="submit" name="submit" value="Create New Timeline" class="submit">
                 </form>
