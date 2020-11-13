@@ -1,16 +1,36 @@
-const endPoint = "http://localhost:3000/api/v1/events";
+const endPointEvents = "http://localhost:3000/api/v1/events";
+const endPointTimelines = "http://localhost:3000/api/v1/timelines";
 
 document.addEventListener('DOMContentLoaded', () => {
    getEvents()
+//    getTimelines()
 
     const createTimelineForm = document.querySelector("#create-timeline-form")
 
     createTimelineForm.addEventListener("submit", (e) => createFormHandler(e));
 })
 
+// Timelines GET request
+function getTimelines() {
+    fetch(endPointTimelines)
+    .then(response => response.json())
+    .then(etimelines => {
+        timelines.data.forEach(timeline => {
+            const timelineInfo = `
+            <div data-id=${timeline.id}>
+            <h3>${timeline.attributes.title}</h3>
+            <p>${timeline.attributes.description}</p>
+            </div>
+            <br><br>`;
+
+            document.querySelector('.displayed-timeline').innerHTML += timelineInfo
+        })
+    })
+}
+
 // Events GET request
 function getEvents() {
-    fetch(endPoint)
+    fetch(endPointEvents)
     .then(response => response.json())
     .then(events => {
         events.data.forEach(event => {
@@ -36,19 +56,16 @@ function createFormHandler(e) {
 
 
 // POST request
-function postTimeline(title, description) {
-let timelineFetchData = {title, description}
+function postTimeline(title, description, user_id) {
+let timelineFetchData = {title, description, user_id}
 
-fetch(endPoint, {
+fetch(endPointTimelines, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(timelineFetchData)
 })
 .then(response => response.json())
 .then(timeline => {
-    console.log(timeline);
-    const timelineData = timeline.data 
-    // render JSON response
-    const 
+    console.log(timeline)
 })
 }
