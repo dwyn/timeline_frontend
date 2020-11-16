@@ -1,9 +1,12 @@
 const endPointEvents = "http://localhost:3000/api/v1/events";
 const endPointTimelines = "http://localhost:3000/api/v1/timelines";
 
+
 document.addEventListener('DOMContentLoaded', () => {
-   getEvents()
-//    getTimelines()
+    console.log('LOADED');
+//    getEvents()
+    getTimelines()
+    postTimeline()
 
     const createTimelineForm = document.querySelector("#create-timeline-form")
 
@@ -71,12 +74,14 @@ function postTimeline(title, description, user_id) {
 //     })
 // }
 
-// function createFormHandler(e) {
-//     e.preventDefault()
-//     const titleInput = document.querySelector("#input-title").value
-//     const descriptionInput = document.querySelector("#input-description").value
-//     postTimeline(titleInput, descriptionInput)
-// }
+function createFormHandler(e) {
+    e.preventDefault()
+    const titleInput = document.querySelector("#input-title").value
+
+    const descriptionInput = document.querySelector("#input-description").value
+
+    postTimeline(titleInput, descriptionInput)
+}
 // queried values here and not at top because I won't reuse this form input data anywhere else
 
 
