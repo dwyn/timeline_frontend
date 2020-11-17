@@ -9,20 +9,24 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
         <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" src="index.js"></script>
-        <script type="stylesheet" src="style.css"></script>
+        <!-- <script src="style.css" type="text/javascript" async></script> -->
 
         <!-- jQuery, Popper.js, and Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-   
+        <script src="style.css" type="text/javascript"></script>
     </head>
 
 
     <body>
+      <div class="jumbotron">
+        <h1>Timeline Creator</h1>
+      </div>
+
+
       <div class="container">
-        <h1>Create a Timeline</h1>
+        <h3>Create a Timeline</h3>
         <form id="create-timeline-form">
       
           <label for="timeline-title">Timeline Title:</label>  
@@ -32,31 +36,15 @@
           <textarea id='input-description' name="description" rows="4" cols="20" value="" placeholder="Timeline's description..."></textarea>
           <br><br>
 
-          <!-- <div id="add-event">
-            <h5>Add an Event</h5>
-            <form id="add-event-form" action="#" method="post">
-              <label for="new-event-year">Event Year:</label>
-              <input type="text" id="new-event-year" name="new-event-year" placeholder="Event's year...">
-              <br>
-              <label for="new-event-title">Event Title:</label>
-              <input type="text" id="new-event-title" name="new-event-title" placeholder="Event's title...">
-              <br>
-              <label for="new-event-description">Event Description:</label>
-              <input type="text" id="new-event-description" name="new-event-description" placeholder="Event's description...">
-              <br><br>
-              <input type="submit" value="Add Event to Timeline">
-            </form> -->
-
-      
           <input id= 'create-button' type="submit" name="submit" value="Create New Timeline" class="submit">
         </form>
 
     </div>
   </section>
-
+<br><br>
           <div id="displayedTimeline">
-            
           </div>
-          
+    
+
     </body>
 </html>

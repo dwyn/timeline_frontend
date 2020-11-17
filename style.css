@@ -1,5 +1,10 @@
-* {
+/* * {
   box-sizing: border-box;
+} */
+
+.jumbotron {
+  background-color: #fb8500;
+  font-family: Helvetica, sans-serif;
 }
 
 /* Set a background color */
@@ -37,7 +42,7 @@ body {
 }
 
 /* The circles on the timeline */
-.container::after {
+/* .container::after {
   content: '';
   position: absolute;
   width: 25px;
@@ -48,20 +53,20 @@ body {
   top: 15px;
   border-radius: 50%;
   z-index: 1;
-}
+} */
 
 /* Place the container to the left */
-.left {
+/* .left {
   left: 0;
-}
+} */
 
 /* Place the container to the right */
-.right {
+/* .right {
   left: 50%;
-}
+} */
 
 /* Add arrows to the left container (pointing right) */
-.left::before {
+/* .left::before {
   content: " ";
   height: 0;
   position: absolute;
@@ -72,10 +77,10 @@ body {
   border: medium solid white;
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent white;
-}
+} */
 
 /* Add arrows to the right container (pointing left) */
-.right::before {
+/* .right::before {
   content: " ";
   height: 0;
   position: absolute;
@@ -86,12 +91,12 @@ body {
   border: medium solid white;
   border-width: 10px 10px 10px 0;
   border-color: transparent white transparent transparent;
-}
+} */
 
 /* Fix the circle for containers on the right side */
-.right::after {
+/* .right::after {
   left: -16px;
-}
+} */
 
 /* The actual content */
 .content {
@@ -109,27 +114,27 @@ body {
   }
 
 /* Full-width containers */
-  .container {
+  /* .container {
     width: 100%;
     padding-left: 70px;
     padding-right: 25px;
-  }
+  } */
 
 /* Make sure that all arrows are pointing leftwards */
-  .container::before {
+  /* .container::before {
     left: 60px;
     border: medium solid white;
     border-width: 10px 10px 10px 0;
     border-color: transparent white transparent transparent;
-  }
+  } */
 
 /* Make sure all circles are at the same spot */
-  .left::after, .right::after {
+  /* .left::after, .right::after {
     left: 15px;
-  }
+  } */
 
 /* Make all right containers behave like the left ones */
-  .right {
+  /* .right {
     left: 0%;
   }
-}
+} */
