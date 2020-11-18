@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getTimeline() {
     fetch(endPoint)
-    .then(resp => resp.json)
+    .then(resp => resp.json())
     .then(timeline => {
         console.log(timeline);
     })
