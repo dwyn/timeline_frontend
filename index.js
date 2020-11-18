@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getTimeline() {
     fetch(endPointTimelines)
-        .then(res => res.json())
+        .then(resp => resp.json())
         .then(timeline => {
             timeline.data.forEach(timeline => {
-            const timelineMarkup = `
+                const timelineMarkup = `
                 <div data-id=${timeline.id}>
                 <h3>${timeline.title}</h3>
                 <p>${timeline.description}</p>
@@ -21,7 +21,7 @@ function getTimeline() {
                 </div>
                 <br><br>`;
 
-            document.querySelector('#displayedTimeline').innerHTML += timelineMarkup;
-        });
-    })
-}
+                document.querySelector('#displayedTimeline').innerHTML += timelineMarkup
+            })
+        })
+    }
