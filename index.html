@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html>
+  <!DOCTYPE html>
+  <html lang="en" dir="ltr">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Timeline Creator</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <script src="index.js" charset="utf-8"></script>
-        <link rel="stylesheet" href="style.css">
+      <meta charset="utf-8" />
+      <title>Toy Tale</title>
+      <link rel="stylesheet" href="index.css" />
 
         <!-- jQuery, Popper.js, and Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -20,7 +16,6 @@
 
 
     <body>
-    <div class="container">
 
       <div class="jumbotron">
         <h1>Timeline Creator</h1>
@@ -31,19 +26,38 @@
         <h3>Create a Timeline</h3>
         <form id="create-timeline-form">
       
-          <label for="timeline-title">Timeline Title:</label>  
-          <input id='input-title' type="text" name="title" placeholder="Timeline's title..." class="input-text">
+          <label for="timeline-title">Timeline Title:</label>
+          <input id="timeline-title"  
+          type="text" 
+          name="title" 
+          value=""
+          placeholder="Timeline's title..."
+          class="input-text"/>
           <br>
-          <label for="timeline-description">Timeline Description:</label> 
-          <textarea id='input-description' name="description" rows="4" cols="20" value="" placeholder="Timeline's description..."></textarea>
+          <label for="timeline-description">Timeline Description:</label>
+          <input id="timeline-description"
+          type="text"
+          name="title"
+          value=""
+          placeholder="Timeline's description"
+          class="input-text"/>
           <br><br>
 
-          <input id= 'create-button' type="submit" name="submit" value="Create New Timeline" class="submit">
+          <input 
+          type="submit" 
+          name="submit" 
+          value="Create a Timeline" 
+          class="submit"/>
         </form>
+      </div>
+
+      <button id="createButton">Create a Timeline</button>
         <br><br>
         <br><br>
-        <div id="displayedTimeline"></div>
-        <!-- <div id="timelineEvents"></div> -->
+
+        <div id="displayed-timeline"></div>
+        <br><br>
+        <div id="events-container"></div>
     
 
       </div>
