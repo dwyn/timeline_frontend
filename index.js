@@ -30,7 +30,16 @@ function postTimeline(timelineData) {
 }
 
 function renderTimeline(timeline) {
-    // insert code for animated timeline + json references
+    let h2 = document.createElement('h2')
+    h2.innerText = `${timeline.title}`
+
+    let p = document.createElement('p')
+    p.innerText = `${timeline.description}`
+
+    let divCard = document.createElement('div')
+    divCard.setAttribute('class', 'card')
+    divCard.append(h2, p)
+    displayedTimeline.append(divCard)
 }
 
 {/* <section class="timeline">
