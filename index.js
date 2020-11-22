@@ -1,7 +1,7 @@
 let addTimeline = false;
 const createTimelineButton = document.querySelector('#createButton');
 const URL = 'http://localhost:3000/timelines';
-const timelineFormContainer = document.querySelector('.formContainer');
+const timelineForm = document.querySelector('#create-timeline-form');
 const displayedTimeline = document.querySelector('#displayed-timeline');
 
 
@@ -42,59 +42,24 @@ function renderTimeline(timeline) {
     displayedTimeline.append(divCard)
 }
 
-{/* <section class="timeline">
-  <ul>
-    <li>
-      <div>
-        <time>1934</time> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-      </div>
-    </li>
-    <li></li> */}
-
-
-
-
-
-
-
-
-
-
-
 
 createTimelineButton.addEventListener("click", () => {
     // only want timeline form to appear if user clicks create button; otherwise, should be hidden
 
     addTimeline = !addTimeline;
     if (addTimeline) {
-        timelineFormContainer.getElementsByClassName.style.display = "block";
-        const newTimeline = document.querySelector('#create-timeline-form')
-        newTimeline.addEventListener('submit', function(e) {
+        timelineForm.style.display = "block"
+        timelineForm.addEventListener('submit', function(e) {
             e.preventDefault()
-
-            const timelineTitle = document.querySelector('#timeline-title')
-            const timelineDescription = document.querySelector('#timeline-description')
-
-            fetch(URL, {
-                    method: "POST",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({
-                        "title": timelineTitle.value,
-                        "description": timelineDescription.value
-                    })
-                })
-                .then(res => res.json())
-                .then(timeline => {
-                    displayedTimeline.innerHTML += `
-                    <div class="container">
-                    <h4>${timeline.title}</h4>
-                    <p>${timeline.description}</p>
-                    <button id="Edit" class="editButton"</button>
-                    </div>
-                    `
-                })
+            postTimeline(e.target)
         })
     } else {
-        timelineContainer.style.display = "none";
+        timelineForm.style.display = "none"
     }
-});
+})
+
+getTimeline().then(timelines => {
+    timelines.forEach(timeline => {
+        renderTimelineline(timeline)
+    })
+})
