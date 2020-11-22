@@ -1,9 +1,15 @@
 let addTimeline = false;
+const startButton = document.querySelector('#startButton')
 const createButton = document.querySelector('#create-button');
 const URL = 'http://localhost:3000/api/v1/timelines';
 const timelineForm = document.querySelector('#create-timeline-form');
 const displayedTimeline = document.querySelector('#displayed-timeline');
 
+document.addEventListener("DOMContentLoaded", () => {
+    addEventListenerToStart();
+    getTimeline();
+    
+})
 
 function getTimeline() {
     return fetch(URL)
@@ -42,21 +48,21 @@ function renderTimeline(timeline) {
     displayedTimeline.append(divCard)
 }
 
-
-createButton.addEventListener("click", () => {
+function addEventListenerToStart() {
+startButton.addEventListener("click", () => {
     // only want timeline form to appear if user clicks create button; otherwise, should be hidden
-
-    addTimeline = !addTimeline;
+    addTimeline = !addTimeline
     if (addTimeline) {
         timelineForm.style.display = "block"
-        timelineForm.addEventListener('submit', function(e) {
-            e.preventDefault()
-            postTimeline(e.target)
+        timelineForm.addEventListener('submit', event => {
+            event.preventDefault()
+            postTimeline(event.target)
         })
     } else {
         timelineForm.style.display = "none"
     }
 })
+}
 
 getTimeline().then(timelines => {
     timelines.forEach(timeline => {
