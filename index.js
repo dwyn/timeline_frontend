@@ -1,6 +1,6 @@
 let addTimeline = false;
-const createTimelineButton = document.querySelector('#createButton');
-const URL = 'http://localhost:3000/timelines';
+const createButton = document.querySelector('#create-button');
+const URL = 'http://localhost:3000/api/v1/timelines';
 const timelineForm = document.querySelector('#create-timeline-form');
 const displayedTimeline = document.querySelector('#displayed-timeline');
 
@@ -43,7 +43,7 @@ function renderTimeline(timeline) {
 }
 
 
-createTimelineButton.addEventListener("click", () => {
+createButton.addEventListener("click", () => {
     // only want timeline form to appear if user clicks create button; otherwise, should be hidden
 
     addTimeline = !addTimeline;
@@ -60,6 +60,6 @@ createTimelineButton.addEventListener("click", () => {
 
 getTimeline().then(timelines => {
     timelines.forEach(timeline => {
-        renderTimelineline(timeline)
+        renderTimeline(timeline)
     })
 })
