@@ -24,11 +24,10 @@
 <!-- button to be clicked to show timeline creation form -->
     <div id="startContainer">
       <h4>Create a Timeline!</h4>
-      <button onclick="formToggle()">Start Building</button>
-      <!-- <button type="submit" class="btn btn-default btn-lg" id="startButton">Start</button> -->
+      <input type="button" value="Start Building" class="btn-default btn-lg" id="startButton" onclick="formToggle()">
     </div>
       <div class="formContainer">
-        <form class="create-timeline-form">
+        <form style="display:none;" class="create-timeline-form">
           <div class="form-group">
             <h3>Create a Timeline</h3>
             <label for="title">Timeline Title:</label>

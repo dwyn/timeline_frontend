@@ -17,11 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
 //     .then(json => {})
 // }
        
-function formToggle() {
-    if (timelineForm.style.display === "none") {
-        timelineForm.style.display = "block";
-    } else {
+function formToggle(button) {
+    if (timelineForm.style.display === "block") {
         timelineForm.style.display = "none";
+        document.getElementById(startButton.id).value = 'Start Building';
+    } else {
+        timelineForm.style.display = "block";
+        document.getElementById(startButton.id).value = "Nevermind";
     }
   }
 
