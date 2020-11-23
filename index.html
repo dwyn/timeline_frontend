@@ -29,7 +29,7 @@
       <div class="formContainer">
         <form style="display:none;" class="create-timeline-form">
           <div class="form-group">
-            <h3>Create a Timeline</h3>
+            <h3 style="text-align: center">Create a Timeline</h3>
             <label for="title">Timeline Title:</label>
             <input type="text" class="form-control" placeholder="Timeline's title..." id="title">
           </div>
@@ -37,6 +37,19 @@
             <label for="description">Timeline Description:</label>
             <input type="text_area" class="form-control" placeholder="Timeline's description..." id="description">
           </div>
+            <h4 style="text-align: center">Add events to your timeline</h4>
+            <div class="form-group">
+            <label for="event-year">Event Year:</label>
+            <input type="text" class="form-control" placeholder="Year of Event..." id="event-year">
+          </div>
+          <div class="form-group">
+            <label for="event-title">Event Title:</label>
+            <input type="text" class="form-control" placeholder="Event Title..." id="event-title">
+        </div>
+        <div class="form-group">
+            <label for="event-description">Event Description:</label>
+            <input type="text" class="form-control" placeholder="Event Description..." id="event-description">
+        </div>
           <button type="submit" class="btn btn-default" id="create-button">Create Timeline</button>
         </form>
       </div>

@@ -27,35 +27,27 @@ function formToggle(button) {
     }
   }
 
-// function postTimeline(timelineData) {
-//     fetch(URL, {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             Accept: 'application/json'
-//         },
-//         body: JSON.stringify({
-//            "title": timelineData.title.value,
-//            "description": timelineData.description.value 
-//         })
-//     })
-//     .then(res => res.json())
-//     .then((obj_timeline) => {
-//         let new_timeline = renderTimeline(obj_timeline)
-//         displayedTimeline.append(new_timeline)
-//     })
-// }
+// formHandler function grabs all of the values input through the timeline form 
+function createFormHandler(e) {
+    e.preventDefault()
+    const titleInput = document.querySelector('#input-title').value
+    const descriptionInput = document.querySelector('#input-description').value
+    postFetch(titleInput, descriptionInput)
+}
 
-// function renderTimeline(timeline) {
-//     let h2 = document.createElement('h2')
-//     h2.innerText = `${timeline.title}`
+function postFetch(title, description) {
+    // console.log(title, description);
+    const bodyData = {title, description}
+    fetch(endPoint, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(bodyData)
+    })
+    .then(res => res.json())
+    .then(timeline => {
+        console.log(timeline.bodyData);
+    })
+}
 
-//     let p = document.createElement('p')
-//     p.innerText = `${timeline.description}`
 
-//     let divCard = document.createElement('div')
-//     divCard.setAttribute('class', 'card')
-//     divCard.append(h2, p)
-//     displayedTimeline.append(divCard)
-// }
 
