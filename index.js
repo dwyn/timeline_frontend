@@ -11,26 +11,19 @@ document.addEventListener("DOMContentLoaded", () => {
     
 })
 
-document.addEventListener("click", showForm)
-
 // function getTimeline() {
 //     return fetch(URL)
 //     .then(res => res.json())
 //     .then(json => {})
 // }
        
-function showForm() {
-    addTimeline = !addTimeline
-    if (addTimeline) {
-        timelineForm.style.display = "block"
-        timelineForm.addEventListener('submit', event => {
-            event.preventDefault()
-            
-        })
+function formToggle() {
+    if (timelineForm.style.display === "none") {
+        timelineForm.style.display = "block";
     } else {
-        timelineForm.style.display = "none"
+        timelineForm.style.display = "none";
     }
-}
+  }
 
 // function postTimeline(timelineData) {
 //     fetch(URL, {

@@ -24,12 +24,13 @@
 <!-- button to be clicked to show timeline creation form -->
     <div id="startContainer">
       <h4>Create a Timeline!</h4>
-      <button type="submit" class="btn btn-default btn-lg" id="startButton">Start</button>
+      <button onclick="formToggle()">Start Building</button>
+      <!-- <button type="submit" class="btn btn-default btn-lg" id="startButton">Start</button> -->
     </div>
-
-        <h3>Create a Timeline</h3>
+      <div class="formContainer">
         <form class="create-timeline-form">
           <div class="form-group">
+            <h3>Create a Timeline</h3>
             <label for="title">Timeline Title:</label>
             <input type="text" class="form-control" placeholder="Timeline's title..." id="title">
           </div>
@@ -39,7 +40,7 @@
           </div>
           <button type="submit" class="btn btn-default" id="create-button">Create Timeline</button>
         </form>
-
+      </div>
 
 
         <div id="displayed-timeline"></div>

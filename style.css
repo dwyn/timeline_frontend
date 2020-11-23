@@ -17,10 +17,9 @@ body {
     color: #edf2f4;
 }
 
-/* #startContainer {
-    border-style: solid;
-    border-width: 2px;
-} */
+.timelineForm {
+    display: none;
+}
 
 #displayedTimeline {
     color: #8d99ae;
