@@ -11,6 +11,13 @@ body {
     background-color: #2b2d42;
     color: #edf2f4;
 }
+button{
+    width:246px;
+    height:40px;
+    color:#4C4C4C;
+    margin-bottom:20px;
+    margin-left:20px
+    }
 
 #startButton {
     background-color: #8d99ae;
