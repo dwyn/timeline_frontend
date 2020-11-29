@@ -19,23 +19,32 @@ function getTimeline() {
     .then(timeline => {
         // console.log(timeline.data[1]);
         timeline.data.forEach(timeline => {
-             console.log(timeline.attributes);
-            const timelineMarkup = `
-                <div data-id=${timeline.id}>
-                <h4>${timeline.attributes.title}</h4>
-                <p>${timeline.attributes.description}</p>
-                
-            </div>
-            <br><br>`;
+            // debugger 
+            // console.log(timeline.attributes);       
+            var obj = timeline.attributes.events;
+            for (var i in obj) {
+                var year = obj[i].year;
+                var title = obj[i].title;
+                var description = obj[i].description;
+                console.log(title);
+            }
+            
 
-            document.querySelector('#displayed-timeline').innerHTML += timelineMarkup
+            // const timelineMarkup = `
+            // <div data-id=${timeline.id}>
+            //     <h5 class="card-title">${timeline.title} </h5>
+            //     <h6 class="card-subtitle mb-2 text-muted">${timeline.attributes.title} </h6>
+            //     <p class="card-text">${timeline.attributes.description} </p>
+            // </div>
+            // <br><br>`;
+
+            // document.querySelector('#displayed-timeline').innerHTML += timelineMarkup;
         })
-    })
-    
+
     .catch(error => {
         alert('An error occurred while retrieving some essential timeline info. The error was: ' + error.toString())
     })
-
+})
 
 
 
