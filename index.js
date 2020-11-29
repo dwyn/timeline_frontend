@@ -5,57 +5,50 @@ const URL = 'http://localhost:3000/api/v1/timelines';
 const timelineForm = document.querySelector('.create-timeline-form');
 const newEventUI = document.getElementById("events");
 const addButton = document.getElementById("add-button");
-const displayedTimeline = document.querySelector('#displayed-timeline');
+// const displayedTimeline = document.querySelector('#displayed-timeline');
 
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    console.log('LOADED');
-    getTimeline();
-    
-})
-
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM is loaded");
+        getTimeline()
+});
 
 function getTimeline() {
     fetch(URL)
     .then(res => res.json())
     .then(timeline => {
+        // console.log(timeline.data[1]);
         timeline.data.forEach(timeline => {
-            let newTimeline = new timeline(timeline)
+            // console.log(timeline.attributes);
+            const timelineMarkup = `
+                <div data-id=${timeline.id}>
+                <h4>${timeline.attributes.title}</h4>
+                <li>${timeline.attributes.events}</li>
+            </div>
+            <br><br>`;
 
-            render(timeline)
-        })
+            document.querySelector('#displayed-timeline').innerHTML += timelineMarkup
+         })
+    })
+
+    
     
     .catch(error => {
         alert('An error occurred while retrieving some essential timeline info. The error was: ' + error.toString())
     })
-    })
-}
+    }
 
-function render(timeline) {
-    const timelineMarkup = `
-        <div data-id=${timeline.id}>
-        <h3>${timeline.title}</h3>
-        <p>${timeline.description}</p>
-        <ul>
-            <li>${timeline.events}</li>
-        </ul>
-        <br>
-        <button data-id=${timeline.id}>Edit</button>
-        </div>
-        <br><br>`;
 
-    document.querySelector('#displayed-timeline').innerHTML += timelineMarkup
-}
+
+
        
 
 // formHandler function grabs all of the values input through the timeline form 
-function createFormHandler(e) {
-    e.preventDefault()
-    const titleInput = document.querySelector('#title').value
-    const descriptionInput = document.querySelector('#description').value
-    postFetch(titleInput, descriptionInput)
-}
+// function createFormHandler(e) {
+//     e.preventDefault()
+//     const titleInput = document.querySelector('#title').value
+//     const descriptionInput = document.querySelector('#description').value
+//     postFetch(titleInput, descriptionInput)
+// }
 
 // function postFetch(title, description) {
 //     console.log(title, description);

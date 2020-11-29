@@ -1,25 +1,26 @@
-console.log("in timeline.js");
+// console.log("in timeline.js");
 
-class Timeline {
-    constructor(id, timeline) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        Timeline.call.push(this);
-    }
-    renderTimeline() {
-        return `
-        <div data-id=${timeline.id}>
-        <h3>${timeline.title}</h3>
-        <p>${timeline.description}</p>
-        <ul>
-            <li>${timeline.events}</li>
-        </ul>
-        <br>
-        <button data-id=${timeline.id}>Edit</button>
-        </div>
-        <br><br>`;
-    }
-}
+// class Timeline {
+//     constructor(id, timeline) {
+//         this.id = id;
+//         this.title = title;
+//         this.description = description;
+//         Timeline.all.push(this)
+//         console.log(this);
+//     }
+//     renderTimeline() {
+//         return `
+//         <div data-id=${this.id}>
+//         <h3>${this.title}</h3>
+//         <p>${this.description}</p>
+//         <ul>
+//             <li>${this.events}</li>
+//         </ul>
+//         <br>
+//         <button data-id=${this.id}>Edit</button>
+//         </div>
+//         <br><br>`;
+//     }
+// }
 
-Timeline.all = [];
+// Timeline.all = [];
