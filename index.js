@@ -1,4 +1,4 @@
-let addTimeline = false;
+// let addTimeline = false;
 const startButton = document.querySelector('#startButton')
 const createButton = document.querySelector('#create-button');
 const URL = 'http://localhost:3000/api/v1/timelines';
@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         getTimeline()
 });
 
+// getTimeline is working except that still can't view individual events associated with timeline....returns '[Object, object]'
 function getTimeline() {
     fetch(URL)
     .then(res => res.json())
@@ -63,6 +64,8 @@ function getTimeline() {
 //     })
 // }
 
+document.getElementById("startButton").addEventListener('click', formToggle);
+
 function formToggle(button) {
     if (timelineForm.style.display === "block") {
         timelineForm.style.display = "none";
@@ -71,5 +74,4 @@ function formToggle(button) {
         timelineForm.style.display = "block";
         document.getElementById(startButton.id).value = "Nevermind";
     }
-  }
-}
+}}
