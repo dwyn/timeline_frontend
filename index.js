@@ -18,24 +18,23 @@ function getTimeline() {
     .then(timeline => {
         // console.log(timeline.data[1]);
         timeline.data.forEach(timeline => {
-            // console.log(timeline.attributes);
+             console.log(timeline.attributes);
             const timelineMarkup = `
                 <div data-id=${timeline.id}>
                 <h4>${timeline.attributes.title}</h4>
-                <li>${timeline.attributes.events}</li>
+                <p>${timeline.attributes.description}</p>
+                
             </div>
             <br><br>`;
 
             document.querySelector('#displayed-timeline').innerHTML += timelineMarkup
-         })
+        })
     })
-
-    
     
     .catch(error => {
         alert('An error occurred while retrieving some essential timeline info. The error was: ' + error.toString())
     })
-    }
+
 
 
 
@@ -73,3 +72,4 @@ function formToggle(button) {
         document.getElementById(startButton.id).value = "Nevermind";
     }
   }
+}
