@@ -20,25 +20,28 @@ function getTimeline() {
         // console.log(timeline.data[1]);
         timeline.data.forEach(timeline => {
             // debugger 
-            // console.log(timeline.attributes);       
-            var obj = timeline.attributes.events;
-            for (var i in obj) {
-                var year = obj[i].year;
-                var title = obj[i].title;
-                var description = obj[i].description;
-                console.log(title);
-            }
+            // console.log(timeline.attributes); 
+
+            const timelineMarkup = 
+            // var event = timeline.attributes.events
+            // for (var i in event)
             
+            `<div data-id=${timeline.id}>
+                <h5 class="card-title">${timeline.attributes.title} </h5>
+                <h6 class="card-subtitle mb-2">${timeline.attributes.description}</h6>
+                <a href="#" class="btn btn-primary">Edit</a>
+            </div>
+            <br><br>`;
 
-            // const timelineMarkup = `
-            // <div data-id=${timeline.id}>
-            //     <h5 class="card-title">${timeline.title} </h5>
-            //     <h6 class="card-subtitle mb-2 text-muted">${timeline.attributes.title} </h6>
-            //     <p class="card-text">${timeline.attributes.description} </p>
-            // </div>
-            // <br><br>`;
 
-            // document.querySelector('#displayed-timeline').innerHTML += timelineMarkup;
+            // var event = timeline;
+            // for (var i in event) {
+            //     var year = event[i].year;
+            //     var title = event[i].title;
+            //     var description = event[i].description;
+            //  console.log(timeline[i]);
+
+            document.querySelector('.timeline-container').innerHTML += timelineMarkup;
         })
 
     .catch(error => {
