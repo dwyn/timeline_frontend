@@ -11,13 +11,17 @@ body {
     background-color: #2b2d42;
     color: #edf2f4;
 }
-button{
-    width:246px;
-    height:40px;
-    color:#4C4C4C;
-    margin-bottom:20px;
-    margin-left:20px
+.btn-sm {
+    background-color: #8d99ae;
     }
+
+.card {
+    background-color: #d90429;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    padding: 2px 16px;
+}
 
 #startButton {
     background-color: #8d99ae;

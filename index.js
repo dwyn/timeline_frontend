@@ -5,7 +5,7 @@ const URL = 'http://localhost:3000/api/v1/timelines';
 const timelineForm = document.querySelector('.create-timeline-form');
 const newEventUI = document.getElementById("events");
 const addButton = document.getElementById("add-button");
-const displayedTimeline = document.querySelector('#displayed-timeline');
+const displayedTimeline = document.querySelector('.card-columns');
 
 
 
@@ -13,16 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('LOADED');
     getTimeline();
 
-    timelineForm.addEventListener("submit", (e) => 
-    e.preventDefault();
-    console.log(e));
-    
+    // timelineForm.addEventListener("submit", (e) => 
+    // e.preventDefault()
+    // ) 
 })
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM is loaded");
-        getTimeline()
-});
 
 function getTimeline() {
     fetch(URL)
@@ -30,16 +25,18 @@ function getTimeline() {
     .then(timeline => {
         // console.log(timeline.data[1]);
         timeline.data.forEach(timeline => {
-             console.log(timeline.attributes);
+            // console.log(timeline.attributes);
             const timelineMarkup = `
-                <div data-id=${timeline.id}>
-                <h4>${timeline.attributes.title}</h4>
-                <p>${timeline.attributes.description}</p>
-                
+            <div class="card bg-light">
+                <div class="card-body text-center">
+                <h6 class="card-text">${timeline.attributes.title}</h6>
+                <div class="card-body">
+                <p class="card-text">${timeline.attributes.description} </p>
+                <button type="button" class="btn btn-sm">Select</button>
             </div>
             <br><br>`;
 
-            document.querySelector('#displayed-timeline').innerHTML += timelineMarkup
+            document.querySelector('.card-columns').innerHTML += timelineMarkup
         })
     })
     
