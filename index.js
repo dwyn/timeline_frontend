@@ -29,7 +29,7 @@ function getTimeline() {
             const timelineMarkup = `
             <div class="card bg-light">
                 <div class="card-body text-center">
-                <h6 class="card-text">${timeline.attributes.title}</h6>
+                <h4 class="card-text">${timeline.attributes.title}</h4>
                 <div class="card-body">
                 <p class="card-text">${timeline.attributes.description} </p>
                 <button type="button" class="btn btn-sm">Select</button>

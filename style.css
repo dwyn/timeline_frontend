@@ -21,6 +21,9 @@ body {
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
     padding: 2px 16px;
+    margin: 25px;
+    height: 150px;
+    width: 200px;
 }
 
 #startButton {
