@@ -1,4 +1,4 @@
-// let addTimeline = false;
+let addTimeline = false;
 const startButton = document.querySelector('#startButton')
 const createButton = document.querySelector('#create-button');
 const URL = 'http://localhost:3000/api/v1/timelines';
@@ -12,42 +12,29 @@ document.addEventListener('DOMContentLoaded', () => {
         getTimeline()
 });
 
-// getTimeline is working except that still can't view individual events associated with timeline....returns '[Object, object]'
 function getTimeline() {
     fetch(URL)
     .then(res => res.json())
     .then(timeline => {
         // console.log(timeline.data[1]);
         timeline.data.forEach(timeline => {
-            // debugger 
-            // console.log(timeline.attributes); 
-
-            const timelineMarkup = 
-            // var event = timeline.attributes.events
-            // for (var i in event)
-            
-            `<div data-id=${timeline.id}>
-                <h5 class="card-title">${timeline.attributes.title} </h5>
-                <h6 class="card-subtitle mb-2">${timeline.attributes.description}</h6>
-                <a href="#" class="btn btn-primary">Edit</a>
+             console.log(timeline.attributes);
+            const timelineMarkup = `
+                <div data-id=${timeline.id}>
+                <h4>${timeline.attributes.title}</h4>
+                <p>${timeline.attributes.description}</p>
+                
             </div>
             <br><br>`;
 
-
-            // var event = timeline;
-            // for (var i in event) {
-            //     var year = event[i].year;
-            //     var title = event[i].title;
-            //     var description = event[i].description;
-            //  console.log(timeline[i]);
-
-            document.querySelector('.timeline-container').innerHTML += timelineMarkup;
+            document.querySelector('#displayed-timeline').innerHTML += timelineMarkup
         })
-
+    })
+    
     .catch(error => {
         alert('An error occurred while retrieving some essential timeline info. The error was: ' + error.toString())
     })
-})
+
 
 
 
@@ -76,8 +63,6 @@ function getTimeline() {
 //     })
 // }
 
-document.getElementById("startButton").addEventListener('click', formToggle);
-
 function formToggle(button) {
     if (timelineForm.style.display === "block") {
         timelineForm.style.display = "none";
@@ -86,4 +71,5 @@ function formToggle(button) {
         timelineForm.style.display = "block";
         document.getElementById(startButton.id).value = "Nevermind";
     }
-}}
+  }
+}

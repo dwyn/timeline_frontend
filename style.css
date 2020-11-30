@@ -28,3 +28,6 @@ button{
     display: none;
 }
 
+#displayedTimeline {
+    color: #8d99ae;
+}
