@@ -19,24 +19,45 @@ document.addEventListener("DOMContentLoaded", () => {
     
 })
 
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM is loaded");
+        getTimeline()
+});
 
 function getTimeline() {
     fetch(URL)
     .then(res => res.json())
-    .then(json => {
-        
+    .then(timeline => {
+        // console.log(timeline.data[1]);
+        timeline.data.forEach(timeline => {
+             console.log(timeline.attributes);
+            const timelineMarkup = `
+                <div data-id=${timeline.id}>
+                <h4>${timeline.attributes.title}</h4>
+                <p>${timeline.attributes.description}</p>
+                
+            </div>
+            <br><br>`;
+
+            document.querySelector('#displayed-timeline').innerHTML += timelineMarkup
+        })
     })
+    
     .catch(error => {
         alert('An error occurred while retrieving some essential timeline info. The error was: ' + error.toString())
     })
-}
+
+
+
+
+
        
 
 // formHandler function grabs all of the values input through the timeline form 
 // function createFormHandler(e) {
 //     e.preventDefault()
-//     const titleInput = document.querySelector('#input-title').value
-//     const descriptionInput = document.querySelector('#input-description').value
+//     const titleInput = document.querySelector('#title').value
+//     const descriptionInput = document.querySelector('#description').value
 //     postFetch(titleInput, descriptionInput)
 // }
 
@@ -63,3 +84,4 @@ function formToggle(button) {
         document.getElementById(startButton.id).value = "Nevermind";
     }
   }
+}
