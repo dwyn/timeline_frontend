@@ -12,6 +12,10 @@ const displayedTimeline = document.querySelector('#displayed-timeline');
 document.addEventListener("DOMContentLoaded", () => {
     console.log('LOADED');
     getTimeline();
+
+    timelineForm.addEventListener("submit", (e) => 
+    e.preventDefault();
+    console.log(e));
     
 })
 
