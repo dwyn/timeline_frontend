@@ -72,6 +72,8 @@ function getTimeline() {
 //     })
 // }
 
+document.getElementById("startButton").addEventListener('click', formToggle);
+
 function formToggle(button) {
     if (timelineForm.style.display === "block") {
         timelineForm.style.display = "none";
