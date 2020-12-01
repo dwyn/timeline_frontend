@@ -13,24 +13,55 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('LOADED');
     getTimeline();
 
-    
-
     timelineForm.addEventListener("submit", (e) => 
     createFormHandler(e))
-})
-    // on submit, new event element should append to show events container
-
-
-    // document.getElementById("addButton").addEventListener('submit', ;
 
     // formHandler function grabs all of the values input through the timeline form 
-function createFormHandler(e) {
+    function createFormHandler(e) {
     e.preventDefault()
-    console.log(e);
-    // const titleInput = document.querySelector('#title').value
-    // const descriptionInput = document.querySelector('#description').value
-    // postFetch(titleInput, descriptionInput)
-}
+    // these variables get the value of the form inputs
+    const timelineTitle = document.getElementById("title").value
+    const timelineDesc = document.getElementById("description").value
+    const eventYear = document.getElementById("event-year").value
+    const eventTitle = document.getElementById("event-title").value
+    const eventDesc = document.getElementById("event-description").value
+    postFetch(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc)
+    }
+
+       // POST FETCH REQUEST
+    function postFetch(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc) {
+        console.log(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc);
+    }
+        // build body object
+//         let bodyData = {title, description, image_url, category_id}
+      
+//         fetch(endPoint, {
+           // POST request
+//           method: "POST",
+//           headers: {"Content-Type": "application/json"},
+//           body: JSON.stringify(bodyData)
+//         })
+//         .then(response => response.json())
+//         .then(syllabus => {
+//           console.log(syllabus);
+//           const syllabusData = syllabus.data
+           // render JSON response
+//           const syllabusMarkup = `
+//           <div data-id=${syllabus.id}>
+//             <img src=${syllabusData.attributes.image_url} height="200" width="250">
+//             <h3>${syllabusData.attributes.title}</h3>
+//             <p>${syllabusData.attributes.category.name}</p>
+//             <button data-id=${syllabusData.id}>edit</button>
+//           </div>
+//           <br><br>`;
+      
+//           document.querySelector('#syllabus-container').innerHTML += syllabusMarkup;
+//         })
+
+//  }
+
+})
+ 
 
 // GET FETCH REQUEST - GET TIMELINE(S) TO DISPLAY
 function getTimeline() {
@@ -55,23 +86,11 @@ function getTimeline() {
     })
     .catch(error => {
         alert('An error occurred while retrieving some essential timeline info. The error was: ' + error.toString())
-    })
+})
 
 
-    // POST FETCH REQUEST
-function postFetch(title, description) {
-    console.log(title, description);
-    const bodyData = {title, description}
-    fetch(URL, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(bodyData)
-    })
-    .then(res => res.json())
-    .then(timeline => {
-        console.log(timeline.bodyData);
-    })
-}
+ 
+
 
 
 // START BUTTON AND FORM TOGGLE
@@ -85,5 +104,5 @@ function formToggle(button) {
         timelineForm.style.display = "block";
         document.getElementById(startButton.id).value = "Nevermind";
     }
-  }
+}
 }
