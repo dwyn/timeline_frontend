@@ -16,51 +16,53 @@ document.addEventListener("DOMContentLoaded", () => {
     timelineForm.addEventListener("submit", (e) => 
     createFormHandler(e))
 
-    // formHandler function grabs all of the values input through the timeline form 
-    function createFormHandler(e) {
-    e.preventDefault()
-    // these variables get the value of the form inputs
-    const timelineTitle = document.getElementById("title").value
-    const timelineDesc = document.getElementById("description").value
-    const eventYear = document.getElementById("event-year").value
-    const eventTitle = document.getElementById("event-title").value
-    const eventDesc = document.getElementById("event-description").value
-    postFetch(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc)
-    }
+            // formHandler function grabs all of the values input through the timeline form 
+            function createFormHandler(e) {
+                e.preventDefault()
+                // these variables get the value of the form inputs
+                const timelineTitle = document.getElementById("title").value
+                const timelineDesc = document.getElementById("description").value
+                const eventYear = document.getElementById("event-year").value
+                const eventTitle = document.getElementById("event-title").value
+                const eventDesc = document.getElementById("event-description").value
+                postTimeline(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc)
+            }
 
-       // POST FETCH REQUEST
-    function postFetch(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc) {
-        // console.log(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc);
-        // build body object
-  let bodyData = {timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc}
+            // POST FETCH REQUEST
+            function postTimeline(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc) {
+                // console.log(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc);
+                // build body object
+                // let bodyData = {timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc}
+                fetch(URL, {
+                    // POST request
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                },
+                    body: {
+                        timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc
+                    },
+                })
+                .then(response => response.json())
+                .then(timeline => {
+                    timeline.data.forEach(timeline => {
+                        console.log(timeline.attributes.events);
+                        // const timelineMarkup = `
+                        // <div class="card bg-light">
+                        //     <div class="card-body text-center">
+                        //     <h4 class="card-text">${timeline.attributes.events.title}</h4>
+                        //     <div class="card-body">
+                        //     <p class="card-text">${timeline.attributes.events.description} </p>
+                        //     <button type="button" class="btn btn-sm">Select</button>
+                        // </div>
+                        // <br><br>`;
 
-  fetch(URL, {
-    // POST request
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(bodyData)
-  })
-  .then(response => response.json())
-  .then(timeline => {
-    timeline.data.forEach(timeline => {
-        console.log(timeline.attributes.events);
-        const timelineMarkup = `
-        <div class="card bg-light">
-            <div class="card-body text-center">
-            <h4 class="card-text">${timeline.attributes.events.title}</h4>
-            <div class="card-body">
-            <p class="card-text">${timeline.attributes.events.description} </p>
-            <button type="button" class="btn btn-sm">Select</button>
-        </div>
-        <br><br>`;
-
-        document.querySelector('.card-columns').innerHTML += timelineMarkup
-    })
-})
-}
-
- })
- 
+                        // document.querySelector('.card-columns').innerHTML += timelineMarkup
+                     })
+                })
+            }
+        })
 
 // GET FETCH REQUEST - GET TIMELINE(S) TO DISPLAY
 function getTimeline() {
@@ -69,7 +71,7 @@ function getTimeline() {
     .then(timeline => {
         // console.log(timeline.data[1]);
         timeline.data.forEach(timeline => {
-            // console.log(timeline.attributes.events);
+            //  console.log(timeline.attributes.events);
             const timelineMarkup = `
             <div class="card bg-light">
                 <div class="card-body text-center">
@@ -86,9 +88,7 @@ function getTimeline() {
     .catch(error => {
         alert('An error occurred while retrieving some essential timeline info. The error was: ' + error.toString())
 })
-
-
- 
+}
 
 
 
@@ -103,5 +103,4 @@ function formToggle(button) {
         timelineForm.style.display = "block";
         document.getElementById(startButton.id).value = "Nevermind";
     }
-}
 }
