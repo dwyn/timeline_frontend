@@ -28,34 +28,40 @@
     </div>
     <!-- if start button is clicked, the formContainer appears. if it's clicked a second time, formContainer hides -->
       <div class="formContainer">
-        <form style="display:none;" class="create-timeline-form">
+        <form style="display:none;" class="create-timeline-form" action="http://localhost:3000/api/v1/timelines" method="POST">
           <div class="form-group">
             <h3 style="text-align: center">Create a Timeline</h3>
-            <label for="title">Timeline Title:</label>
-            <input type="text" class="form-control" placeholder="Timeline's title..." id="title">
+            <label> Timeline Title: <input type="text" class="form-control" placeholder="Timeline's title..."name="timelineTitle" id="timelineTitle" /></label><br />
+            <label> Timeline Description: <input type="text" class="form-control" placeholder="Timeline's description..."name="timelineDescription" id="timelineDescription" /></label><br />
+            <label> Event Year: <input type="text" class="form-control" placeholder="Event's year..." name="eventYear" id="eventYear" /></label><br />
+            <label> Event Title: <input type="text" class="form-control" placeholder="Event's title..." name="eventTitle" id="eventTitle" /></label><br />
+            <label> Event Description: <input type="text" class="form-control" placeholder="Event's description..." name="eventDescription" id="eventDescription" /></label><br />
+            
+            
+            <!-- <label for="title">Timeline Title:</label>
+            <input type="text" class="form-control" placeholder="Timeline's title..." id="title"> -->
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="description">Timeline Description:</label>
             <input type="text_area" class="form-control" placeholder="Timeline's description..." id="description">
-          </div>
-            <h4 style="text-align: center">Add events to your timeline</h4>
+          </div> -->
+            <!-- <h4 style="text-align: center">Add events to your timeline</h4>
             <div class="form-group">
             <label for="event-year">Event Year:</label>
             <input type="text" class="form-control" placeholder="Year of Event..." id="event-year">
-          </div>
-          <div class="form-group">
+          </div> -->
+          <!-- <div class="form-group">
             <label for="event-title">Event Title:</label>
             <input type="text" class="form-control" placeholder="Event Title..." id="event-title">
-          </div>
-          <div class="form-group">
+          </div> -->
+          <!-- <div class="form-group">
               <label for="event-description">Event Description:</label>
-              <input type="text" class="form-control" placeholder="Event Description..." id="event-description">
+              <input type="text" class="form-control" placeholder="Event Description..." id="event-description"> -->
               <br>
               <!-- <button type="button" class="btn btn-sm" id="addEvent">Add Event</button> -->
 
-              <input type="submit" class="btn" id="createButton">Create</button>
+              <input type="submit" class="btn" id="createButton"></button>
           </div>
-          
         </form>
       </div>
       <br>

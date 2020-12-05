@@ -20,19 +20,18 @@ document.addEventListener("DOMContentLoaded", () => {
             function createFormHandler(e) {
                 e.preventDefault()
                 // these variables get the value of the form inputs
-                const timelineTitle = document.getElementById("title").value
-                const timelineDesc = document.getElementById("description").value
-                const eventYear = document.getElementById("event-year").value
-                const eventTitle = document.getElementById("event-title").value
-                const eventDesc = document.getElementById("event-description").value
-                postTimeline(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc)
+                const timelineTitle = document.getElementById("timelineTitle").value
+                const timelineDescription = document.getElementById("timelineDescription").value
+                const eventYear = document.getElementById("eventYear").value
+                const eventTitle = document.getElementById("eventTitle").value
+                const eventDescription = document.getElementById("eventDescription").value
+                postTimeline(timelineTitle, timelineDescription, eventYear, eventTitle, eventDescription)
             }
 
             // POST FETCH REQUEST
-            function postTimeline(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc) {
-                // console.log(timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc);
-                // build body object
-                // let bodyData = {timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc}
+            function postTimeline(title, description, eventYear, eventTitle, eventDescription) {
+                // debugger
+                // console.log(timeline)
                 fetch(URL, {
                     // POST request
                     method: "POST",
@@ -40,14 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         "Content-Type": "application/json",
                         "Accept": "application/json"
                 },
-                    body: {
-                        timelineTitle, timelineDesc, eventYear, eventTitle, eventDesc
-                    },
+                    body: JSON.stringify({
+                        title, description, eventYear, eventTitle, eventDescription
+                    }),
                 })
                 .then(response => response.json())
                 .then(timeline => {
-                    timeline.data.forEach(timeline => {
-                        console.log(timeline.attributes.events);
+                     this.timeline.forEach(timeline => {
+                        // console.log(timeline);
+                            // .attributes.events);
                         // const timelineMarkup = `
                         // <div class="card bg-light">
                         //     <div class="card-body text-center">
