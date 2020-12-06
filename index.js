@@ -45,24 +45,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 .then(response => response.json())
                 .then(timeline => {
-                     this.timeline.forEach(timeline => {
-                        // console.log(timeline);
-                            // .attributes.events);
+                    console.log(timeline.data);
+                    // console.log(timeline);
+                    // this.timeline.forEach(timeline => {
+                    // console.log(timeline);
+                    // .attributes.events);
                         // const timelineMarkup = `
                         // <div class="card bg-light">
                         //     <div class="card-body text-center">
                         //     <h4 class="card-text">${timeline.attributes.events.title}</h4>
                         //     <div class="card-body">
                         //     <p class="card-text">${timeline.attributes.events.description} </p>
-                        //     <button type="button" class="btn btn-sm">Select</button>
+                        //     <button type="button" data-id=${timeline.data.attributes.id} class="btn btn-sm">Select</button>
                         // </div>
                         // <br><br>`;
 
                         // document.querySelector('.card-columns').innerHTML += timelineMarkup
                      })
-                })
-            }
-        })
+                }
+            })
+        //  })
 
 // GET FETCH REQUEST - GET TIMELINE(S) TO DISPLAY
 function getTimeline() {
